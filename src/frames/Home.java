@@ -49,6 +49,11 @@ public class Home extends javax.swing.JFrame {
         btnSettings.setText("settings");
 
         rSButton1.setText("back");
+        rSButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,6 +96,11 @@ public class Home extends javax.swing.JFrame {
             btnSettings.setVisible(true);
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void rSButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton1ActionPerformed
+        // TODO add your handling code here:
+        tools.openJFrame(this, new Login());
+    }//GEN-LAST:event_rSButton1ActionPerformed
 
     /**
      * @param args the command line arguments

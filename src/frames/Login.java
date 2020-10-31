@@ -183,10 +183,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (tools.checkPanelElements(panel)) {
             boolean login = database.CheckUserAndPass(tools.getText(username), tools.getText(password));
-            this.dispose();
-            Home home = new Home(tools.getText(username));
-            home.setLocationRelativeTo(null);
-            home.setVisible(true);
+            tools.openJFrame(this, new Home(tools.getText(username)));
         } else {
             JOptionPane.showMessageDialog(null, "plz fill the blank fields!");
         }

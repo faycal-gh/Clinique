@@ -7,6 +7,7 @@ package classes;
 
 import java.awt.Component;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -44,28 +45,8 @@ public class tools {
         return isEmpty;
     }
 
-//    public static String getText(Object obj) {
-//        String object = "";
-//        if (obj.getClass().getName().contains("JTextField")) {
-//            object = ((JTextField) obj).getText().trim();
-//        } else if (obj.getClass().getName().contains("RSMTextFull")) {
-//            object = ((RSMTextFull) obj).getText().trim();
-//        } else if (obj.getClass().getName().contains("RSMPassView")) {
-//            object = ((RSMPassView) obj).getText().trim();
-//        } else if (obj.getClass().getName().contains("JLabel")) {
-//            object = ((JLabel) obj).getText().trim();
-//        } else if (obj.getClass().getName().contains("JComboBox")) {
-//            object = new JComboBox(obj.toString().split(" ")).getSelectedItem().toString().substring(obj.toString().indexOf("selectedItemReminder=") + "selectedItemReminder=".length(), obj.toString().length() - 1).trim();
-//        }
-//        return object;
-//    }
-//}
-    public static Object forSwitchStatemnt(Object obj){
-        return obj.getClass().getName();
-    }
     public static String getText(Object obj) {
         String object = "";
-                
         if (obj.getClass().getName().contains("JTextField")) {
             object = ((JTextField) obj).getText().trim();
         } else if (obj.getClass().getName().contains("RSMTextFull")) {
@@ -78,5 +59,11 @@ public class tools {
             object = new JComboBox(obj.toString().split(" ")).getSelectedItem().toString().substring(obj.toString().indexOf("selectedItemReminder=") + "selectedItemReminder=".length(), obj.toString().length() - 1).trim();
         }
         return object;
+    }
+
+    public static void openJFrame(JFrame dispose, JFrame form) {
+        dispose.dispose();
+        form.setLocationRelativeTo(null);
+        form.setVisible(true);
     }
 }
