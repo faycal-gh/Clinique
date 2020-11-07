@@ -10,6 +10,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import rojeru_san.RSMPassView;
 import rojeru_san.RSMTextFull;
@@ -65,5 +66,14 @@ public class tools {
         dispose.dispose();
         form.setLocationRelativeTo(null);
         form.setVisible(true);
+    }
+    
+    // JTabbedPane
+    public static void addJTabbedPane(JTabbedPane panelName,String tabbedTitle) {
+        JPanel panel = new JPanel();
+        panelName.add(tabbedTitle, panel);
+    }
+    public static void gotoJTabbedPane(JTabbedPane pane,int index){
+        pane.setSelectedIndex(index);
     }
 }
