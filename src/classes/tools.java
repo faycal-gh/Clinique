@@ -68,7 +68,7 @@ public class tools {
         form.setVisible(true);
     }
     
-    // JTabbedPane
+    // JTabbedPane //
     public static void addJTabbedPane(JTabbedPane panelName,String tabbedTitle) {
         JPanel panel = new JPanel();
         panelName.add(tabbedTitle, panel);
