@@ -6,6 +6,7 @@
 package frames;
 
 import classes.tools;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
@@ -36,6 +37,7 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        evaluatorByte1 = new org.jdesktop.core.animation.timing.evaluators.EvaluatorByte();
         lblUserType = new javax.swing.JLabel();
         btnSettings = new rojeru_san.RSButton();
         rSButton1 = new rojeru_san.RSButton();
@@ -54,14 +56,6 @@ public class Home extends javax.swing.JFrame {
         tbdOptions = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -266,110 +260,6 @@ public class Home extends javax.swing.JFrame {
 
         tbdOptions.addTab("Home", jPanel2);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 955, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
-
-        tbdOptions.addTab("Patients", jPanel3);
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 955, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
-
-        tbdOptions.addTab("Recharche patient", jPanel4);
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 955, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
-
-        tbdOptions.addTab("Nouveau patient", jPanel5);
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 955, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
-
-        tbdOptions.addTab("Rendes vous", jPanel6);
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 955, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
-
-        tbdOptions.addTab("Ordonnance", jPanel7);
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 955, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
-
-        tbdOptions.addTab("Consultation", jPanel8);
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 955, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
-
-        tbdOptions.addTab("Compt-rendu", jPanel9);
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 955, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-        );
-
-        tbdOptions.addTab("Courrier", jPanel10);
-
         getContentPane().add(tbdOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 34, 960, 670));
 
         pack();
@@ -381,7 +271,7 @@ public class Home extends javax.swing.JFrame {
             btnSettings.setVisible(false);
         } else {
             btnSettings.setVisible(true);
-        }        
+        }
     }//GEN-LAST:event_formWindowOpened
 
     private void rSButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton1ActionPerformed
@@ -394,56 +284,48 @@ public class Home extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSettingsActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        tools.addJTabbedPane(tbdOptions, "test panel");
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void rSButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton3ActionPerformed
-        // TODO add your handling code here:
-        tools.gotoJTabbedPane(this.tbdOptions, 1);
+        // TODO add your handling code here:               
+        JPanel pnl = new Panels.Patients().patients;
+        tools.checkAndCreatePanels(tbdOptions, "Patients", pnl);
+        tbdOptions.setTabComponentAt(tbdOptions.indexOfTab("Patients"), tools.closeTabs(tbdOptions, pnl, "Patients"));
     }//GEN-LAST:event_rSButton3ActionPerformed
 
     private void rSButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton12ActionPerformed
-        // TODO add your handling code here:
-        tools.gotoJTabbedPane(this.tbdOptions, 0);
+        // TODO add your handling code here:        
     }//GEN-LAST:event_rSButton12ActionPerformed
 
     private void rSButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton2ActionPerformed
-        // TODO add your handling code here:
-        tools.gotoJTabbedPane(this.tbdOptions, 2);
+        // TODO add your handling code here:        
     }//GEN-LAST:event_rSButton2ActionPerformed
 
     private void rSButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton6ActionPerformed
-        // TODO add your handling code here:
-        tools.gotoJTabbedPane(this.tbdOptions, 3);
+        // TODO add your handling code here:        
     }//GEN-LAST:event_rSButton6ActionPerformed
 
     private void rSButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton4ActionPerformed
-        // TODO add your handling code here:
-        tools.gotoJTabbedPane(this.tbdOptions, 4);
+        // TODO add your handling code here:        
     }//GEN-LAST:event_rSButton4ActionPerformed
 
     private void rSButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton5ActionPerformed
-        // TODO add your handling code here:
-        tools.gotoJTabbedPane(this.tbdOptions, 5);
+        // TODO add your handling code here:        
     }//GEN-LAST:event_rSButton5ActionPerformed
 
     private void rSButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton10ActionPerformed
-        // TODO add your handling code here:
-        tools.gotoJTabbedPane(this.tbdOptions, 6);
+        // TODO add your handling code here:        
     }//GEN-LAST:event_rSButton10ActionPerformed
 
     private void rSButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton7ActionPerformed
         // TODO add your handling code here:
-        tools.gotoJTabbedPane(this.tbdOptions, 7);
     }//GEN-LAST:event_rSButton7ActionPerformed
 
     private void rSButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton11ActionPerformed
         // TODO add your handling code here:
-//        tools.addJTabbedPane(tbdOptions, this.rSButton11.getText());
-        tools.gotoJTabbedPane(this.tbdOptions, 8);
     }//GEN-LAST:event_rSButton11ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -483,18 +365,11 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rojeru_san.RSButton btnSettings;
+    private org.jdesktop.core.animation.timing.evaluators.EvaluatorByte evaluatorByte1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lblUserType;
     private rojeru_san.RSButton rSButton1;
     private rojeru_san.RSButton rSButton10;
