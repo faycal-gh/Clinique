@@ -6,9 +6,7 @@
 package frames;
 
 import classes.tools;
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
 /**
  *
@@ -306,7 +304,7 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:        
         JPanel pnl = new Panels.NouveauPatient().NouveauPatient;
         tools.checkAndCreatePanels(tbdOptions, "Nouveau Patient", pnl);
-        tbdOptions.setTabComponentAt(tbdOptions.indexOfTab("Nouveau Patient"), tools.closeTabs(tbdOptions, pnl, "Nouveau Patient"));
+        tbdOptions.setTabComponentAt(tbdOptions.indexOfTab("Nouveau Patient"), tools.closeTabs(tbdOptions, pnl, "Nouveau Patient"));        
     }//GEN-LAST:event_rSButton6ActionPerformed
 
     private void rSButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton4ActionPerformed
