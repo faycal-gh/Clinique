@@ -297,10 +297,16 @@ public class Home extends javax.swing.JFrame {
 
     private void rSButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton2ActionPerformed
         // TODO add your handling code here:        
+        JPanel pnl = new Panels.RechercherPatient().RechercherPatient;
+        tools.checkAndCreatePanels(tbdOptions, "Rechercher Patients", pnl);
+        tbdOptions.setTabComponentAt(tbdOptions.indexOfTab("Rechercher Patients"), tools.closeTabs(tbdOptions, pnl, "Rechercher Patients"));
     }//GEN-LAST:event_rSButton2ActionPerformed
 
     private void rSButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton6ActionPerformed
         // TODO add your handling code here:        
+        JPanel pnl = new Panels.NouveauPatient().NouveauPatient;
+        tools.checkAndCreatePanels(tbdOptions, "Nouveau Patient", pnl);
+        tbdOptions.setTabComponentAt(tbdOptions.indexOfTab("Nouveau Patient"), tools.closeTabs(tbdOptions, pnl, "Nouveau Patient"));
     }//GEN-LAST:event_rSButton6ActionPerformed
 
     private void rSButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton4ActionPerformed

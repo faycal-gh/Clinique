@@ -83,11 +83,12 @@ public class tools {
     }
 
     public static void checkAndCreatePanels(JTabbedPane tbdOptions, String tabTitle, JPanel panel) {
-        if (tbdOptions.indexOfTab(tabTitle) == -1) {
+        if (tbdOptions.indexOfTab(tabTitle) == -1) {            
             tbdOptions.add(tabTitle, panel);
             tbdOptions.setSelectedIndex(tbdOptions.indexOfTab(tabTitle));
-        } else {
-            tbdOptions.setSelectedIndex(tbdOptions.indexOfTab(tabTitle));
+        } else {            
+            tbdOptions.remove(panel);            
+            tbdOptions.setSelectedIndex(tbdOptions.indexOfTab(tabTitle));            
         }
     }
 
