@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -91,12 +92,12 @@ public class database {
             prepared = con.prepareStatement(insert);
             System.out.println(values.length);
             for (int start = 1; start <= values.length; start++) {
-                if(values[start].getClass().getName().contains("Integer") || values[start].getClass().getName().contains("String")){
-                    prepared.setString(start, String.valueOf(values[start - 1]));                    
-                }else{
+                if (values[start].getClass().getName().contains("Integer") || values[start].getClass().getName().contains("String")) {
+                    prepared.setString(start, String.valueOf(values[start - 1]));
+                } else {
                     // OTHER DATA-TYPES
                 }
-            }            
+            }
             if (prepared.executeUpdate() == 1) {
                 JOptionPane.showMessageDialog(null, "تم إدخال المعلومات بنجاح");
             } else {
@@ -105,6 +106,21 @@ public class database {
         } catch (SQLException ex) {
             Logger.getLogger(database.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
 
+    public static void showUsersInJComboBox(JComboBox combo, String tableName, String column) {
+        Connection connection = getConnection();
+        String query = "select * from " + tableName;
+        Statement st;
+        ResultSet rs;
+        try {
+            st = connection.createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+                combo.addItem(rs.getString(column));
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
     }
 }

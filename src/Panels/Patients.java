@@ -49,7 +49,7 @@ public class Patients extends javax.swing.JFrame {
             patientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patientsLayout.createSequentialGroup()
                 .addComponent(rSPanelsSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 322, Short.MAX_VALUE))
+                .addGap(0, 352, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -48,6 +48,11 @@ public class Login extends javax.swing.JFrame {
         username = new javax.swing.JComboBox<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         panel.setBackground(new java.awt.Color(0, 111, 191));
 
@@ -81,10 +86,8 @@ public class Login extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/mini person.png"))); // NOI18N
 
-        username.setEditable(true);
         username.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        username.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "faycal", "ghali" }));
-        username.setSelectedIndex(-1);
+        username.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "choose a user" }));
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
@@ -170,7 +173,7 @@ public class Login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(363, Short.MAX_VALUE))
+                .addContainerGap(338, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,18 +184,30 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void rSButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButton1ActionPerformed
-        // TODO add your handling code here:
-        if (tools.checkPanelElements(panel)) {
-            boolean login = database.CheckUserAndPass(tools.getText(username), tools.getText(password));
-            tools.openJFrame(this, new Home(tools.getText(username)));
+        // TODO add your handling code here:      
+        if (username.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Please choose a user");
         } else {
-            JOptionPane.showMessageDialog(null, "plz fill the blank fields!");
+            if (tools.checkPanelElements(panel)) {
+                boolean login = database.CheckUserAndPass(tools.getText(username), tools.getText(password));
+                tools.openJFrame(this, new Home(tools.getText(username)));
+            } else {
+                JOptionPane.showMessageDialog(null, "plz fill the blank fields!");
+            }
         }
     }//GEN-LAST:event_rSButton1ActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        try {
+            database.showUsersInJComboBox(username, "userinfo", "username");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_formWindowOpened
+
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_usernameActionPerformed
 
     /**
