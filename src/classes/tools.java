@@ -9,13 +9,19 @@ import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import rojeru_san.RSMPassView;
 import rojeru_san.RSMTextFull;
 
@@ -33,18 +39,20 @@ public class tools {
         return !isEmpty;
     }
 
-    public static boolean checkPanelElements(JPanel panel) {
+    public static boolean checkPanelElements(JPanel... panels) {
         boolean isEmpty = true;
-        Component components[] = panel.getComponents();
-        for (Component compo : components) {
-            if (compo.getClass().getName().contains("JComboBox") && new JComboBox(compo.toString().split(" ")).getSelectedItem().toString().substring(compo.toString().indexOf("selectedItemReminder=") + "selectedItemReminder=".length(), compo.toString().length() - 1).isEmpty()) {
-                isEmpty &= false;
-            } else if (compo.getClass().getName().contains("JTextField") && ((JTextField) compo).getText().trim().isEmpty()) {
-                isEmpty &= false;
-            } else if (compo.getClass().getName().contains("RSMTextFull") && ((RSMTextFull) compo).getText().trim().isEmpty()) {
-                isEmpty &= false;
-            } else if (compo.getClass().getName().contains("RSMPassView") && ((RSMPassView) compo).getText().trim().isEmpty()) {
-                isEmpty &= false;
+        for (JPanel panel : panels) {
+            Component components[] = panel.getComponents();
+            for (Component compo : components) {
+                if (compo.getClass().getName().contains("JComboBox") && new JComboBox(compo.toString().split(" ")).getSelectedItem().toString().substring(compo.toString().indexOf("selectedItemReminder=") + "selectedItemReminder=".length(), compo.toString().length() - 1).isEmpty()) {
+                    isEmpty &= false;
+                } else if (compo.getClass().getName().contains("JTextField") && ((JTextField) compo).getText().trim().isEmpty()) {
+                    isEmpty &= false;
+                } else if (compo.getClass().getName().contains("RSMTextFull") && ((RSMTextFull) compo).getText().trim().isEmpty()) {
+                    isEmpty &= false;
+                } else if (compo.getClass().getName().contains("RSMPassView") && ((RSMPassView) compo).getText().trim().isEmpty()) {
+                    isEmpty &= false;
+                }
             }
         }
         return isEmpty;
@@ -62,6 +70,45 @@ public class tools {
             object = ((JLabel) obj).getText().trim();
         } else if (obj.getClass().getName().contains("JComboBox")) {
             object = new JComboBox(obj.toString().split(" ")).getSelectedItem().toString().substring(obj.toString().indexOf("selectedItemReminder=") + "selectedItemReminder=".length(), obj.toString().length() - 1).trim();
+        }
+        return object;
+    }
+
+    private static int getTypeNumberInJPanel(JPanel pnl, String... types) {
+        int i = 0;
+        for (int compo = 0; compo < pnl.getComponentCount(); compo++) {
+            for (String type : types) {
+                if (pnl.getComponent(compo).getClass().getName().contains(type)) {
+                    i++;
+                }
+            }
+        }
+        return i;
+    }
+
+    public static String[] getDataFromPanel(JPanel... compos) {
+        int i = 0;
+        String object[] = new String[100];
+        for (JPanel compo : compos) {
+            for (Component com : compo.getComponents()) {
+                if (com.getClass().getName().contains("JTextField")) {
+                    object[i] = ((JTextField) com).getText().trim();
+                } else if (com.getClass().getName().contains("RSMTextFull")) {
+                    object[i] = ((RSMTextFull) compo.getComponent(i)).getText().trim();
+                } else if (com.getClass().getName().contains("RSMPassView")) {
+                    object[i] = ((RSMPassView) com).getText().trim();
+                } else if (com.getClass().getName().contains("JRadioButton")) {
+                    if (((JRadioButton) com).isSelected()) {
+                        object[i] = ((JRadioButton) com).getText().trim();
+                    }
+                } else if (com.getClass().getName().contains("JComboBox")) {
+                    object[i] = new JComboBox(com.toString().split(" ")).getSelectedItem().toString().substring(com.toString().indexOf("selectedItemReminder=") + "selectedItemReminder=".length(), com.toString().length() - 1).trim();
+                } else if (com.getClass().getName().contains("FileInputStream")) {
+
+                }
+                i++;
+            }
+
         }
         return object;
     }
@@ -107,5 +154,42 @@ public class tools {
         titlePanel.add(closeButton);
         return titlePanel;
     }
-    
+
+    public static void addToRadioGroup(ButtonGroup btnG, JRadioButton... btnsR) {
+        for (JRadioButton btn : btnsR) {
+            btnG.add(btn);
+        }
+    }
+
+    public static String choseImage(JLabel lbl_path) {
+        String path = "";
+        JFileChooser chooser = new JFileChooser();
+        chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.images", "jpg", "gif", "png");
+        int result = chooser.showSaveDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File select = chooser.getSelectedFile();
+            path = select.getAbsolutePath();
+            lbl_path.setText(path);
+        } else {
+            JOptionPane.showMessageDialog(null, "Aucune image n'a été sélectionnée");
+        }
+        return path;
+    }
+
+    public static Object[] insertIntoArray(Object arr[], Object x, int pos) {
+        int i;
+        int n = arr.length;
+        Object newarr[] = new Object[n + 1];
+        for (i = 0; i < n + 1; i++) {
+            if (i < pos - 1) {
+                newarr[i] = arr[i];
+            } else if (i == pos - 1) {
+                newarr[i] = x;
+            } else {
+                newarr[i] = arr[i - 1];
+            }
+        }
+        return newarr;
+    }
 }

@@ -5,6 +5,7 @@
  */
 package classes;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -90,24 +91,36 @@ public class database {
         String insert = "INSERT INTO `" + tableName + "`(" + splitWithComma(columnName) + ") VALUES(" + questionMarkNumber(columnName.length) + ")";
         try {
             prepared = con.prepareStatement(insert);
-            System.out.println(values.length);
+            System.out.println(values.length);            
             for (int start = 1; start <= values.length; start++) {
-                if (values[start].getClass().getName().contains("Integer") || values[start].getClass().getName().contains("String")) {
+                if (values[start - 1].getClass().getName().contains("Integer") || values[start - 1].getClass().getName().contains("String")) {
                     prepared.setString(start, String.valueOf(values[start - 1]));
+                } else if (values[start - 1].getClass().getName().contains("FileInputStream")) {
+                    prepared.setBlob(start, ((InputStream) values[start - 1]));
+                } else if (values[start - 1].getClass().isArray()) {
+                    System.out.println("rana f array");
+                    Object[] obj = ((Object[]) values[start - 1]);
+                    for (int x = 0; x < obj.length; x++) {
+                        if (obj[x - 1].getClass().getName().contains("Integer") || obj[x - 1].getClass().getName().contains("String")) {
+                            prepared.setString(start, String.valueOf(obj[x - 1]));
+                        } else if (obj[x - 1].getClass().getName().contains("FileInputStream")) {
+                            prepared.setBlob(x, ((InputStream) obj[x - 1]));
+                        }
+                    }
                 } else {
-                    // OTHER DATA-TYPES
-                }
+                    // OTHER DATA-TYPES                    
+                }                
             }
             if (prepared.executeUpdate() == 1) {
-                JOptionPane.showMessageDialog(null, "تم إدخال المعلومات بنجاح");
+                JOptionPane.showMessageDialog(null, "Les informations ont été saisies avec succès");
             } else {
-                JOptionPane.showMessageDialog(null, "تعذر إدخال المعلومات ");
+                JOptionPane.showMessageDialog(null, "Les informations n'ont pas pu être saisies");
             }
         } catch (SQLException ex) {
             Logger.getLogger(database.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     public static void showUsersInJComboBox(JComboBox combo, String tableName, String column) {
         Connection connection = getConnection();
         String query = "select * from " + tableName;

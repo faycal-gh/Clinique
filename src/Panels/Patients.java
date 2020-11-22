@@ -5,6 +5,17 @@
  */
 package Panels;
 
+import classes.database;
+import classes.tools;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 0day
@@ -27,46 +38,512 @@ public class Patients extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnRadioPersonlGroupe = new javax.swing.ButtonGroup();
+        btnRadioSupplGroupe = new javax.swing.ButtonGroup();
         patients = new javax.swing.JPanel();
-        rSPanelsSlider2 = new rojeru_san.RSPanelsSlider();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        pnl1 = new javax.swing.JPanel();
+        btnRadioMlle = new javax.swing.JRadioButton();
+        btnRadioMme = new javax.swing.JRadioButton();
+        btnRadioMr = new javax.swing.JRadioButton();
+        jLabel13 = new javax.swing.JLabel();
+        txtPrenom = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        txtAge = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        txtNom = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        btnSexe = new javax.swing.JComboBox();
+        jLabel24 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        lblPath = new javax.swing.JLabel();
+        pnl2 = new javax.swing.JPanel();
+        btnRadioCelib = new javax.swing.JRadioButton();
+        btnRadioMarie = new javax.swing.JRadioButton();
+        btnRadiVeuve = new javax.swing.JRadioButton();
+        jTextField6 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        btnRadioDivorcé = new javax.swing.JRadioButton();
+        pnl3 = new javax.swing.JPanel();
+        jTextField17 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jTextField18 = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        jTextField19 = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        jTextField20 = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        jTextField21 = new javax.swing.JTextField();
+        jTextField22 = new javax.swing.JTextField();
+        jTextField23 = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jTextField24 = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        pnl4 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField13 = new javax.swing.JTextField();
+        jTextField15 = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        rSButtonRiple1 = new rojeru_san.RSButtonRiple();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setForeground(java.awt.Color.white);
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Patients");
-        rSPanelsSlider2.add(jLabel2, "card2");
+        patients.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout patientsLayout = new javax.swing.GroupLayout(patients);
-        patients.setLayout(patientsLayout);
-        patientsLayout.setHorizontalGroup(
-            patientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rSPanelsSlider2, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
-        );
-        patientsLayout.setVerticalGroup(
-            patientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patientsLayout.createSequentialGroup()
-                .addComponent(rSPanelsSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 352, Short.MAX_VALUE))
-        );
+        jLabel4.setBackground(new java.awt.Color(51, 102, 255));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setText("informations supplémentaires");
+        jLabel4.setOpaque(true);
+        patients.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 510, 22));
+
+        pnl1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnRadioMlle.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnRadioMlle.setText("Mlle");
+        btnRadioMlle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRadioMlleActionPerformed(evt);
+            }
+        });
+        pnl1.add(btnRadioMlle, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        btnRadioMme.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnRadioMme.setText("Mme");
+        btnRadioMme.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRadioMmeActionPerformed(evt);
+            }
+        });
+        pnl1.add(btnRadioMme, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+
+        btnRadioMr.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnRadioMr.setText("Mr");
+        btnRadioMr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRadioMrActionPerformed(evt);
+            }
+        });
+        pnl1.add(btnRadioMr, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setText("Image");
+        pnl1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 100, 22));
+
+        txtPrenom.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtPrenom.setText(" ");
+        pnl1.add(txtPrenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 210, 30));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setText("Prénom");
+        pnl1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 50, 22));
+
+        txtDate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtDate.setText(" ");
+        txtDate.setToolTipText("");
+        pnl1.add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 210, 30));
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel19.setText("Date de naissance ");
+        pnl1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 120, 22));
+
+        txtAge.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtAge.setText(" ");
+        txtAge.setToolTipText("");
+        pnl1.add(txtAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 210, 30));
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel20.setText("Age");
+        pnl1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 120, 22));
+
+        txtNom.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtNom.setText(" ");
+        pnl1.add(txtNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 210, 30));
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel22.setText("Nom");
+        pnl1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 50, 22));
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel23.setText("Civilité");
+        pnl1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 22));
+
+        btnSexe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "chose", "Male", "Femelle" }));
+        pnl1.add(btnSexe, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 240, 30));
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel24.setText("Sexe");
+        pnl1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 50, 22));
+
+        jButton9.setText("Choisir un fichier...");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        pnl1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, 30));
+
+        lblPath.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblPath.setForeground(new java.awt.Color(204, 204, 204));
+        lblPath.setText("Aucune fichier choisir");
+        pnl1.add(lblPath, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 340, 30));
+
+        patients.add(pnl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 500, 260));
+
+        pnl2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnRadioCelib.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnRadioCelib.setText("Célibataire");
+        btnRadioCelib.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRadioCelibActionPerformed(evt);
+            }
+        });
+        pnl2.add(btnRadioCelib, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+
+        btnRadioMarie.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnRadioMarie.setText("Marié(e)");
+        btnRadioMarie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRadioMarieActionPerformed(evt);
+            }
+        });
+        pnl2.add(btnRadioMarie, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
+
+        btnRadiVeuve.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnRadiVeuve.setText("Veuve/Veuf");
+        btnRadiVeuve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRadiVeuveActionPerformed(evt);
+            }
+        });
+        pnl2.add(btnRadiVeuve, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
+
+        jTextField6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField6.setText(" ");
+        pnl2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 210, 30));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setText("Profession");
+        pnl2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 100, 22));
+
+        jTextField7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField7.setText(" ");
+        jTextField7.setToolTipText("");
+        pnl2.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 210, 30));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel15.setText("Le groupe sanguin");
+        pnl2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 120, 22));
+
+        jTextField9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField9.setText(" ");
+        pnl2.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 210, 30));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("Type d'assurance");
+        pnl2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 130, 22));
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel18.setText("Situation familiale ");
+        pnl2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 22));
+
+        btnRadioDivorcé.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnRadioDivorcé.setText("Divorcé(e)");
+        btnRadioDivorcé.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRadioDivorcéActionPerformed(evt);
+            }
+        });
+        pnl2.add(btnRadioDivorcé, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, -1, -1));
+
+        patients.add(pnl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, 510, 190));
+
+        pnl3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField17.setText(" ");
+        pnl3.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 490, 30));
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel29.setText("Province");
+        pnl3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 90, 22));
+
+        jTextField18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField18.setText(" ");
+        jTextField18.setToolTipText("");
+        pnl3.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 230, 30));
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel30.setText("Ville");
+        pnl3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 120, 22));
+
+        jTextField19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField19.setText(" ");
+        jTextField19.setToolTipText("");
+        pnl3.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 240, 30));
+
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel31.setText("Pays");
+        pnl3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 120, 22));
+
+        jTextField20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField20.setText(" ");
+        pnl3.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 240, 30));
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel32.setText("Code postal");
+        pnl3.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 80, 22));
+
+        jTextField21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField21.setText(" ");
+        pnl3.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 230, 30));
+
+        jTextField22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField22.setText(" ");
+        jTextField22.setToolTipText("");
+        pnl3.add(jTextField22, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 240, 30));
+
+        jTextField23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField23.setText(" ");
+        jTextField23.setToolTipText("");
+        pnl3.add(jTextField23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 230, 30));
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel34.setText("Télé fixe");
+        pnl3.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 120, 22));
+
+        jLabel35.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel35.setText("Télé portable");
+        pnl3.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 120, 22));
+
+        jTextField24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField24.setText(" ");
+        jTextField24.setToolTipText("");
+        pnl3.add(jTextField24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 490, 30));
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel36.setText("Email");
+        pnl3.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 90, 22));
+
+        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel37.setText("Adresse");
+        pnl3.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 50, 22));
+
+        jLabel38.setBackground(new java.awt.Color(51, 102, 255));
+        jLabel38.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel38.setText("Adresse et contact");
+        jLabel38.setOpaque(true);
+        pnl3.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 22));
+
+        patients.add(pnl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 330));
+
+        pnl4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setText("Les allerges");
+        pnl4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 90, 22));
+
+        jTextField3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField3.setText(" ");
+        jTextField3.setToolTipText("");
+        pnl4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 490, 40));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setText("Antécédents personnels");
+        pnl4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 200, 22));
+
+        jTextField13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField13.setText(" ");
+        pnl4.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 490, 40));
+
+        jTextField15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTextField15.setText(" ");
+        jTextField15.setToolTipText("");
+        pnl4.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 490, 40));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel26.setText("Antécédents familiaux");
+        pnl4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 190, 22));
+
+        jLabel33.setBackground(new java.awt.Color(51, 102, 255));
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel33.setText("Historique des maladies");
+        jLabel33.setOpaque(true);
+        pnl4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 22));
+
+        patients.add(pnl4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 510, 290));
+
+        jLabel21.setBackground(new java.awt.Color(51, 102, 255));
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setText("informations personelles du patient");
+        jLabel21.setOpaque(true);
+        patients.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 500, 22));
+
+        rSButtonRiple1.setText("Enregistrer");
+        rSButtonRiple1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonRiple1ActionPerformed(evt);
+            }
+        });
+        patients.add(rSButtonRiple1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(patients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 1035, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(patients, javax.swing.GroupLayout.PREFERRED_SIZE, 1035, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(patients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 642, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(patients, javax.swing.GroupLayout.PREFERRED_SIZE, 642, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRadioCelibActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRadioCelibActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRadioCelibActionPerformed
+
+    private void btnRadioMarieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRadioMarieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRadioMarieActionPerformed
+
+    private void btnRadiVeuveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRadiVeuveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRadiVeuveActionPerformed
+
+    private void btnRadioDivorcéActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRadioDivorcéActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRadioDivorcéActionPerformed
+
+    private void btnRadioMlleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRadioMlleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRadioMlleActionPerformed
+
+    private void btnRadioMmeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRadioMmeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRadioMmeActionPerformed
+
+    private void btnRadioMrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRadioMrActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRadioMrActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        tools.addToRadioGroup(btnRadioSupplGroupe, btnRadiVeuve, btnRadioCelib, btnRadioDivorcé, btnRadioMarie);
+        tools.addToRadioGroup(btnRadioPersonlGroupe, btnRadioMlle, btnRadioMme, btnRadioMr);
+    }//GEN-LAST:event_formWindowOpened
+    private String civilite = "";
+    private String situation_familiale = "";
+
+    public boolean checkCivilite() {
+        boolean selected = false;
+        if (btnRadioMr.isSelected()) {
+            civilite = "Mr";
+            selected |= true;
+        } else if (btnRadioMme.isSelected()) {
+            civilite = "Mme";
+            selected |= true;
+        } else if (btnRadioMlle.isSelected()) {
+            civilite = "Mlle";
+            selected |= true;
+        } else {
+            JOptionPane.showMessageDialog(null, "Veuillez choisir le Civilité");
+        }
+        return selected;
+    }
+
+    public boolean checkFamilySitaution() {
+        boolean situation = false;
+        if (btnRadioMarie.isSelected()) {
+            situation_familiale = "Marié(e)";
+            situation |= true;
+        } else if (btnRadioCelib.isSelected()) {
+            situation_familiale = "Célibataire";
+            situation |= true;
+        } else if (btnRadioDivorcé.isSelected()) {
+            situation_familiale = "Divorcé(e)";
+            situation |= true;
+        } else if (btnRadiVeuve.isSelected()) {
+            situation_familiale = "Veuve/Veuf";
+            situation |= true;
+        } else {
+            JOptionPane.showMessageDialog(null, "Veuillez choisir la Situation familiale ");
+        }
+        return situation;
+    }
+
+    public boolean checkGender() {
+        boolean gender = false;
+        if (btnSexe.getSelectedIndex() < 1) {
+            JOptionPane.showMessageDialog(null, "Veuillez choisir un sexe!");
+        } else {
+            gender |= true;
+        }
+        return gender;
+    }
+    private void rSButtonRiple1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonRiple1ActionPerformed
+        // TODO add your handling code here:                                       
+        if (checkCivilite()) {
+            if (checkGender()) {
+                if (checkFamilySitaution()) {
+                    if (!lblPath.getText().equals("Aucune fichier choisir")) {
+                        if (tools.checkPanelElements(pnl1, pnl2, pnl3, pnl4)) {
+                            try {
+                                String columnNames[] = {"civilite", "prenom", "birthdate", "age", "nom", "gender", "family_situation", "profession", "groupe_sanguin", "assurance", "img", "address", "ville", "pays", "code_postal", "province", "portable", "fix", "email", "antecedents_personnels", "allerges", "antecedents_familiaux"};
+                                String pnl1Data[] = Arrays.stream(tools.getDataFromPanel(pnl1, pnl2, pnl3, pnl4)).filter(Objects::nonNull).toArray(String[]::new);
+                                Object finalData[] = tools.insertIntoArray(pnl1Data, new FileInputStream(new File(tools.getText(lblPath))), 11);
+                                database.insertToDataBase("patients", columnNames, (Object[]) finalData);
+                            } catch (FileNotFoundException ex) {
+                                Logger.getLogger(Patients.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Veuillez remplir les champs");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Veuillez choisir une image");
+                    }
+                }
+            }
+        }
+
+    }//GEN-LAST:event_rSButtonRiple1ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        tools.choseImage(lblPath);
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,8 +581,67 @@ public class Patients extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JRadioButton btnRadiVeuve;
+    private javax.swing.JRadioButton btnRadioCelib;
+    private javax.swing.JRadioButton btnRadioDivorcé;
+    private javax.swing.JRadioButton btnRadioMarie;
+    private javax.swing.JRadioButton btnRadioMlle;
+    private javax.swing.JRadioButton btnRadioMme;
+    private javax.swing.JRadioButton btnRadioMr;
+    private javax.swing.ButtonGroup btnRadioPersonlGroupe;
+    private javax.swing.ButtonGroup btnRadioSupplGroupe;
+    private javax.swing.JComboBox btnSexe;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
+    private javax.swing.JTextField jTextField19;
+    private javax.swing.JTextField jTextField20;
+    private javax.swing.JTextField jTextField21;
+    private javax.swing.JTextField jTextField22;
+    private javax.swing.JTextField jTextField23;
+    private javax.swing.JTextField jTextField24;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel lblPath;
     public static javax.swing.JPanel patients;
-    private rojeru_san.RSPanelsSlider rSPanelsSlider2;
+    private javax.swing.JPanel pnl1;
+    private javax.swing.JPanel pnl2;
+    private javax.swing.JPanel pnl3;
+    public static javax.swing.JPanel pnl4;
+    private rojeru_san.RSButtonRiple rSButtonRiple1;
+    private javax.swing.JTextField txtAge;
+    private javax.swing.JTextField txtDate;
+    private javax.swing.JTextField txtNom;
+    private javax.swing.JTextField txtPrenom;
     // End of variables declaration//GEN-END:variables
 }
