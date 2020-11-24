@@ -41,6 +41,7 @@ public class tools {
 
     public static boolean checkPanelElements(JPanel... panels) {
         boolean isEmpty = true;
+        ButtonGroup btnG = new ButtonGroup();
         for (JPanel panel : panels) {
             Component components[] = panel.getComponents();
             for (Component compo : components) {
@@ -52,8 +53,13 @@ public class tools {
                     isEmpty &= false;
                 } else if (compo.getClass().getName().contains("RSMPassView") && ((RSMPassView) compo).getText().trim().isEmpty()) {
                     isEmpty &= false;
+                } else if (compo.getClass().getName().contains("JRadioButton")) {                    
+                    btnG.add((JRadioButton) compo);
                 }
             }
+        }
+        if (btnG.getSelection() == null) {
+            isEmpty &= false;
         }
         return isEmpty;
     }

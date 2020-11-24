@@ -33,7 +33,7 @@ public class Clinique {
         }
         return newarr;
     }
-    
+
     public static void main(String[] args) {
         // TODO code application logic here  
 //        String imgpath = "C:\\Users\\HALIM\\Desktop\\70462147_1286646698184323_5184646853420908544_n.jpg";

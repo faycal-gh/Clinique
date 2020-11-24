@@ -69,6 +69,23 @@ public class database {
         }
         return false;
     }
+    public static boolean checkUser(String UserName) {
+        try {
+            SetConnection();
+            Statement stm = con.createStatement();
+            String StrCheck;
+            StrCheck = "select * from userinfo where username='" + UserName + "'";
+            stm.executeQuery(StrCheck);
+            if (stm.getResultSet().next()) {
+                con.close();
+                return true;
+            }
+            con.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return false;
+    }
 
     public static String splitWithComma(String a[]) {
         String returnedValue = "";
