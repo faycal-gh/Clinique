@@ -49,7 +49,7 @@ public class SignUp extends javax.swing.JFrame {
         rSButton2 = new rojeru_san.RSButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        userType = new javax.swing.JComboBox<>();
+        userType = new javax.swing.JComboBox<String>();
         jLabel1 = new javax.swing.JLabel();
         male = new javax.swing.JRadioButton();
         female = new javax.swing.JRadioButton();
@@ -96,7 +96,7 @@ public class SignUp extends javax.swing.JFrame {
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/mini person.png"))); // NOI18N
 
         userType.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        userType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choisissez le type d'utilisateur", "admin", "normale" }));
+        userType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Choisissez le type d'utilisateur", "admin", "normale" }));
         userType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userTypeActionPerformed(evt);

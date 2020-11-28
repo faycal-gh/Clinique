@@ -69,6 +69,7 @@ public class database {
         }
         return false;
     }
+
     public static boolean checkUser(String UserName) {
         try {
             SetConnection();
@@ -84,7 +85,25 @@ public class database {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-        return false;
+        return false;        
+        }
+
+    public static String getDataFromDataBase(String tableName, String target, String selectorColumn, String selectorValue) {
+        Connection connection = getConnection();
+        String query = "select " + target + " from " + tableName + " where " + selectorColumn + "='" + selectorValue + "'";
+        String result = "Error";
+        Statement st;
+        ResultSet rs;       
+        try {
+            st = connection.createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+                result = rs.getString(target);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return result;
     }
 
     public static String splitWithComma(String a[]) {
@@ -108,7 +127,7 @@ public class database {
         String insert = "INSERT INTO `" + tableName + "`(" + splitWithComma(columnName) + ") VALUES(" + questionMarkNumber(columnName.length) + ")";
         try {
             prepared = con.prepareStatement(insert);
-            System.out.println(values.length);            
+            System.out.println(values.length);
             for (int start = 1; start <= values.length; start++) {
                 if (values[start - 1].getClass().getName().contains("Integer") || values[start - 1].getClass().getName().contains("String")) {
                     prepared.setString(start, String.valueOf(values[start - 1]));
@@ -126,7 +145,7 @@ public class database {
                     }
                 } else {
                     // OTHER DATA-TYPES                    
-                }                
+                }
             }
             if (prepared.executeUpdate() == 1) {
                 JOptionPane.showMessageDialog(null, "Les informations ont été saisies avec succès");
@@ -137,7 +156,7 @@ public class database {
             Logger.getLogger(database.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public static void showUsersInJComboBox(JComboBox combo, String tableName, String column) {
         Connection connection = getConnection();
         String query = "select * from " + tableName;
