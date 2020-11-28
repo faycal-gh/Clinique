@@ -180,7 +180,7 @@ public class Login extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 210, Short.MAX_VALUE))
+                .addGap(0, 364, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,8 +196,8 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please choose a user");
         } else {
             if (tools.checkPanelElements(panel)) {
-                boolean login = database.CheckUserAndPass(tools.getText(username), tools.getText(password));
-                tools.openJFrame(this, new Home(tools.getText(username)));
+                boolean login = database.CheckUserAndPass(tools.getText(username), tools.getText(password));                
+                tools.openJFrame(this, new Home(tools.getText(lblType)));
             } else {
                 JOptionPane.showMessageDialog(null, "plz fill the blank fields!");
             }
@@ -216,7 +216,7 @@ public class Login extends javax.swing.JFrame {
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
         if (username.getSelectedIndex() != 0) {
-            String type = database.getDataFromDataBase("userinfo", "userType", "username", username.getSelectedItem().toString());
+            String type = database.getDataFromDataBase("userinfo", "userType", "username", username.getSelectedItem().toString());            
             lblType.setForeground(Color.red);
             lblType.setText(type);
         }

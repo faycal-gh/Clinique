@@ -86,25 +86,7 @@ public class database {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         return false;        
-        }
-
-    public static String getDataFromDataBase(String tableName, String target, String selectorColumn, String selectorValue) {
-        Connection connection = getConnection();
-        String query = "select " + target + " from " + tableName + " where " + selectorColumn + "='" + selectorValue + "'";
-        String result = "Error";
-        Statement st;
-        ResultSet rs;       
-        try {
-            st = connection.createStatement();
-            rs = st.executeQuery(query);
-            while (rs.next()) {
-                result = rs.getString(target);
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }
-        return result;
-    }
+        }    
 
     public static String splitWithComma(String a[]) {
         String returnedValue = "";
@@ -171,5 +153,22 @@ public class database {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
+    }
+    public static String getDataFromDataBase(String tableName, String target, String selectorColumn, String selectorValue) {
+        Connection connection = getConnection();        
+        String query = "select " + target + " from " + tableName + " where " + selectorColumn + "='" + selectorValue + "'";
+        String result = "Error";
+        Statement st;
+        ResultSet rs;       
+        try {
+            st = connection.createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+                result = rs.getString(target);            
+            }            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return result;
     }
 }
