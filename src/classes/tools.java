@@ -10,6 +10,7 @@ import java.awt.FlowLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.util.regex.PatternSyntaxException;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
@@ -20,8 +21,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.RowFilter;
+import javax.swing.event.DocumentListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+import org.w3c.dom.events.DocumentEvent;
 import rojeru_san.RSMPassView;
 import rojeru_san.RSMTextFull;
 
@@ -53,7 +60,7 @@ public class tools {
                     isEmpty &= false;
                 } else if (compo.getClass().getName().contains("RSMPassView") && ((RSMPassView) compo).getText().trim().isEmpty()) {
                     isEmpty &= false;
-                } else if (compo.getClass().getName().contains("JRadioButton")) {                    
+                } else if (compo.getClass().getName().contains("JRadioButton")) {
                     btnG.add((JRadioButton) compo);
                 }
             }
@@ -115,7 +122,7 @@ public class tools {
                 i++;
             }
 
-        }        
+        }
         return object;
     }
 
@@ -197,5 +204,33 @@ public class tools {
             }
         }
         return newarr;
+    }
+
+    public static void addArrayDataToJTable(JTable tbl, String data[]) {
+        DefaultTableModel dtm = (DefaultTableModel) tbl.getModel();
+        dtm.addRow(data);
+    }
+
+    public static void filterTableBy(JTable tbl, String query) {
+        TableRowSorter<DefaultTableModel> trs = new TableRowSorter<DefaultTableModel>();
+        tbl.setRowSorter(trs);
+        trs.setRowFilter(RowFilter.regexFilter(query));
+    }
+
+    public static void AddFilter(JTable tbl, JTextField txtSearch, Integer SearchColumnIndex) {
+        DefaultTableModel model = (DefaultTableModel) tbl.getModel();
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+        tbl.setRowSorter(sorter);
+        String txt = txtSearch.getText().toLowerCase();
+        if (txt.length() == 0) {
+            sorter.setRowFilter(null);
+        } else {
+            try {
+                sorter.setRowFilter(RowFilter.regexFilter("^(?i)" + txt, SearchColumnIndex));
+            } catch (PatternSyntaxException pse) {
+                System.out.println("Bad regex pattern");
+            }
+        }
+
     }
 }

@@ -45,6 +45,6 @@ public class Clinique {
 //        }
 
         int arr[] = {1, 2, 3, 4, 5};
-        System.out.println(Arrays.toString(insertX(arr, 30, 3)));
+        System.out.println(Arrays.toString(insertX(arr, 30, 3)));        
     }
 }
